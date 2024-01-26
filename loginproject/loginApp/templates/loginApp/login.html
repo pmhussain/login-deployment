@@ -1,0 +1,25 @@
+{% extends 'loginApp/base.html' %}
+
+
+{% block content %}
+
+<div class="container" align='center' >
+  <div class="jumbotron" style = "margin-top: 50px; background-color: green; color: white; width:35%">
+    <h1>Login</h1>
+    {% for message in messages%}
+          <p style="color: red; font-size:30px ;font-weight: bold;">{{message}}</p>
+    {%endfor%}
+    <form method="post" action=""> {% csrf_token %}
+      <!-- {{form.as_p}} -->
+      <input type="text" name="username" placeholder="Username..." class="form-control" required> <br>
+      <input type="password" name="password" placeholder="Password..." class="form-control" required> <br>
+      <input type="submit" name="" value="Login" class="btn btn-primary btn-lg">
+    </form>
+    <br>
+    <p>Don't have an account? <a href="{% url 'register' %}" style="color: red;"> Register now</a> </p>
+    <p>Forgor password? <a href="{% url 'reset_password' %}" style="color: red;"> Reset </a> </p>
+
+  </div>
+</div>
+
+{%endblock%}

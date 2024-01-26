@@ -1,0 +1,15 @@
+{% extends 'loginApp/base.html' %}
+{% block content %}
+<div class="container">
+  <h1>Send WhatsApp message</h1>
+  <form method="post"> {%csrf_token%}
+    <label for="mobileno">Mobile No : </label>
+    <input id= 'mobileno' type="number" name="mobileno" value="" placeholder="Enter 10 digit mobile number" style='width:300px'>
+    <br>
+    <p><label for="message">Message : </label></p>
+    <textarea id="message" name="message" rows="4" cols="50" placeholder="Type your message here"></textarea>
+    <br>
+    <input class="btn btn-info" type="Submit" name="" value="Send" > <span style='color:red'>{{msg}}</span>
+  </form>
+</div>
+{%endblock%}
